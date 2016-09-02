@@ -46,7 +46,7 @@ BOOL CFTech_GraphExDlg::OnInitDialog()
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
-
+	
 	m_wndGrp.SetCountGraph(1);
 	m_wndGrp.SetMaxValueAxis(10,10);
 

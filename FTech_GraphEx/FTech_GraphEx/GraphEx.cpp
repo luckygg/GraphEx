@@ -125,6 +125,7 @@ void CGraphEx::PreSubclassWindow()
 BEGIN_MESSAGE_MAP(CGraphEx, CWnd)
 	ON_WM_PAINT()
 	ON_WM_MOUSEMOVE()
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 // CGraphEx message handlers
@@ -850,4 +851,14 @@ void CGraphEx::OnMouseMove(UINT nFlags, CPoint point)
 	Invalidate(false);
 
 	CWnd::OnMouseMove(nFlags, point);
+}
+
+
+void CGraphEx::OnSize(UINT nType, int cx, int cy)
+{
+	CWnd::OnSize(nType, cx, cy);
+
+	GetClientRect(m_rcFrm);	
+
+	m_rcGrp.SetRect(m_rcFrm.left + 75, m_rcFrm.top + 10, m_rcFrm.right - 35, m_rcFrm.bottom - 30);
 }

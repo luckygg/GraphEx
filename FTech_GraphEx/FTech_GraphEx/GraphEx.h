@@ -5,6 +5,8 @@
 //----------------------------------------------------------
 // Programmed by William Kim
 //----------------------------------------------------------
+// Last Update : 2016-09-02
+//----------------------------------------------------------
 
 #define WINCLASSNAME_GRAPHEX L"GRAPHEX_CLASS"
 
@@ -155,4 +157,5 @@ protected:
 	virtual void PreSubclassWindow();
 public:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 };
