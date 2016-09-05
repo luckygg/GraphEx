@@ -40,7 +40,8 @@ CGraphEx::CGraphEx()
 	m_bDrawGrid		= true;
 	m_bDrawScale	= true;
 	m_bShowLabel	= true;
-	m_bShowValue	= true;
+	m_bShowValueX	= true;
+	m_bShowValueY	= true;
 	m_bShowOrigin	= true;
 	m_bShowInteger	= false;
 
@@ -477,7 +478,7 @@ void CGraphEx::DrawScaleGridValue(Graphics* pG)
 			Pen pen(m_clrGrid,m_fSizeGrid);
 			pG->DrawLine(&pen,Point(m_rcGrp.left+2, int(dPosY)), Point(m_rcGrp.right-2, int(dPosY)));
 		}
-		if (m_bShowValue)
+		if (m_bShowValueY)
 		{
 			rect.SetRect(m_rcGrp.left - 45, int(dPosY - 8), m_rcGrp.left - 8, int(dPosY + 10));
 			if (m_bShowInteger)
@@ -516,7 +517,7 @@ void CGraphEx::DrawScaleGridValue(Graphics* pG)
 			Pen pen(m_clrGrid,m_fSizeGrid);
 			pG->DrawLine(&pen,Point(int(dPosX), m_rcGrp.top+2), Point(int(dPosX), m_rcGrp.bottom-2));
 		}
-		if (m_bShowValue)
+		if (m_bShowValueX)
 		{
 			rect.SetRect(int(dPosX - 40), m_rcGrp.bottom + 8, int(dPosX + 40), m_rcGrp.bottom + 26);
 			if (m_bShowInteger)
