@@ -5,7 +5,7 @@
 //----------------------------------------------------------
 // Programmed by William Kim
 //----------------------------------------------------------
-// Last Update : 2016-09-02
+// Last Update : 2016-09-05 17:03
 //----------------------------------------------------------
 
 #define WINCLASSNAME_GRAPHEX L"GRAPHEX_CLASS"
@@ -86,6 +86,7 @@ public:
 	
 	//----- Add & Clear Graph Data -----//
 	void SetGraphData(int nIndex, stCoordinate* pData, int nArrSize);
+	void SetGraphData(int nIndex, int* pXdata, int* pYdata, int nArrSize);
 	void ClearGraphData(int nIndex);
 	void ClearAllGraphData();
 

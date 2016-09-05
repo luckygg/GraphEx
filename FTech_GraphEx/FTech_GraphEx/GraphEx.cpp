@@ -197,6 +197,42 @@ void CGraphEx::SetGraphData(int nIndex, stCoordinate* pData, int nArrSize)
 	}
 }
 
+void CGraphEx::SetGraphData(int nIndex, int* pXdata, int* pYdata, int nArrSize)
+{
+	if (m_pStGraphData == NULL) return;
+	ClearGraphData(nIndex);
+
+	if (pXdata == NULL) return;
+	if (pYdata == NULL) return;
+	if (nIndex < 0 || nIndex > m_nCntGraph-1) return;
+
+	double dStepAxisX = (double) m_rcGrp.Width () / (m_nCntScaleAxisX+1); //0과 Max의 눈금 때문에 +1을 함.
+	double dStepAxisY = (double) m_rcGrp.Height() / (m_nCntScaleAxisY+1); 
+	double dValueAxisX= m_dMaxAxisX / m_nCntScaleAxisX;
+	double dValueAxisY= m_dMaxAxisY / m_nCntScaleAxisY;
+	double y_start = m_rcGrp.top + dStepAxisY;
+	double y_end   = m_rcGrp.top + dStepAxisY*(m_nCntScaleAxisY+1);
+	double x_start = m_rcGrp.left;
+	double x_end   = m_rcGrp.left + dStepAxisX*(m_nCntScaleAxisX);
+	double x_pos=0.0, y_pos=0.0;
+
+	if (m_pArrPosGrp[nIndex].GetSize() != 0)
+		m_pArrPosGrp[nIndex].RemoveAll();
+
+	for (int i=0; i<nArrSize; i++)
+	{
+		stCoordinate coordinate;
+		coordinate.x = pXdata[i];
+		coordinate.y = pYdata[i];
+		m_pStGraphData[nIndex].arrGraphData.Add(coordinate);
+
+		y_pos = y_start + (y_end - y_start)*(m_dMaxAxisY - pYdata[i])/m_dMaxAxisY;
+		x_pos = x_start + (x_end - x_start)*(pXdata[i])/m_dMaxAxisX;
+
+		m_pArrPosGrp[nIndex].Add(PointF((REAL)x_pos,(REAL)y_pos));
+	}
+}
+
 void CGraphEx::ClearGraphData(int nIndex)
 {
 	if (m_pStGraphData == NULL) return;
