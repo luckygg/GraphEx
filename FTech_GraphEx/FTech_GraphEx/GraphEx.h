@@ -45,6 +45,7 @@ public:
 	void SetSizeTextValue	(float fSize) { m_fSizeValue	= fSize; Invalidate(); }
 	void SetSizeTextLabel	(float fSize) { m_fSizeLabel	= fSize; Invalidate(); }
 	void SetSizeTextInfo	(float fSize) { m_fSizeInfo		= fSize; Invalidate(); }
+	void SetSizeInfo		(int nWidth, int nHeight) { m_szInfo.cx = nWidth; m_szInfo.cy = nHeight; Invalidate(); }
 	
 	//----- Set Color -----//
 	void SetColorFrmBkg		(int nA, int nR, int nG, int nB) { m_clrFrmBkg		= Color(nA, nR, nG, nB); Invalidate(); }
