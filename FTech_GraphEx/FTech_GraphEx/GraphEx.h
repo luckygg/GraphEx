@@ -65,9 +65,8 @@ public:
 	
 	//----- Set & Get Enable Option -----//
 	void SetEnableDrawGrid  (bool bEnable) { m_bDrawGrid   = bEnable; Invalidate(); }
-	void SetEnableDrawScale (bool bEnable) { m_bDrawScale  = bEnable; Invalidate(); }
-	//void SetEnableShowValue (bool bEnable) { m_bShowValue  = bEnable; Invalidate(); }
-	void SetEnableShowValue (bool bAxisX, bool bAxisY) { m_bShowValueX = bAxisX; m_bShowValueY = bAxisY;Invalidate(); }
+	void SetEnableDrawScale (bool bAxisX, bool bAxisY) { m_bDrawScaleX = bAxisX; m_bDrawScaleY = bAxisY; Invalidate(); }
+	void SetEnableShowValue (bool bAxisX, bool bAxisY) { m_bShowValueX = bAxisX; m_bShowValueY = bAxisY; Invalidate(); }
 	void SetEnableShowLabel (bool bEnable) { m_bShowLabel  = bEnable; Invalidate(); }
 	void SetEnableShowOrigin(bool bEnable) { m_bShowOrigin = bEnable; Invalidate(); }
 	void SetEnableDrawGraph (int nIndex, bool bEnable)  { if (nIndex <0) return; m_pStGraphData[nIndex].bDrawGraph = bEnable; Invalidate(); }
@@ -130,7 +129,8 @@ private:
 	int m_nCntScaleAxisX;			// X축으로 몇 등분 할 것인지.
 	int m_nCntScaleAxisY;			// Y축으로 몇 등분 할 것인지.
 	bool m_bDrawGrid;				// 격자선을 그릴 것인지.
-	bool m_bDrawScale;				// 구분선을 그릴 것인지.
+	bool m_bDrawScaleX;				// X축 구분선을 그릴 것인지.
+	bool m_bDrawScaleY;				// Y축 구분선을 그릴 것인지.
 	bool m_bShowLabel;				// Label text를 그릴 것인지.
 	bool m_bShowValueX;				// X축 Value text를 그릴 것인지.
 	bool m_bShowValueY;				// Y축 Value text를 그릴 것인지.

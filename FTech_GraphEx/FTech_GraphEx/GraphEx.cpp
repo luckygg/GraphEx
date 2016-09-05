@@ -38,7 +38,8 @@ CGraphEx::CGraphEx()
 	m_pStGraphData  = NULL;
 
 	m_bDrawGrid		= true;
-	m_bDrawScale	= true;
+	m_bDrawScaleX	= true;
+	m_bDrawScaleY	= true;
 	m_bShowLabel	= true;
 	m_bShowValueX	= true;
 	m_bShowValueY	= true;
@@ -468,7 +469,7 @@ void CGraphEx::DrawScaleGridValue(Graphics* pG)
 	for (int i=0; i<m_nCntScaleAxisY; i++)
 	{
 		dPosY = m_rcGrp.top + dStepAxisY * (i+1);
-		if (m_bDrawScale)
+		if (m_bDrawScaleY)
 		{
 			Pen pen(m_clrScale,m_fSizeScale);
 			pG->DrawLine(&pen,Point(m_rcGrp.left-1, int(dPosY)), Point(m_rcGrp.left-6, int(dPosY)));
@@ -507,7 +508,7 @@ void CGraphEx::DrawScaleGridValue(Graphics* pG)
 	{
 		dPosX = m_rcGrp.left + dStepAxisX * (i+1);
 
-		if (m_bDrawScale)
+		if (m_bDrawScaleX)
 		{
 			Pen pen(m_clrScale,m_fSizeScale);
 			pG->DrawLine(&pen,Point(int(dPosX), m_rcGrp.bottom+1), Point(int(dPosX), m_rcGrp.bottom+6));
